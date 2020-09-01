@@ -1,8 +1,8 @@
-#Assignment 1 Flix Project
-#COMPSCI235
-#aman290
-#365403795
-#Aniketh Mantravadi
+# Assignment 1 Flix Project
+# COMPSCI235
+# aman290
+# 365403795
+# Aniketh Mantravadi
 
 import csv
 import datetime
@@ -152,7 +152,6 @@ class Movie:
     def director(self, direc: Director):
         self.__director = direc
 
-
     @property
     def actors(self) -> List[Actor]:
         return self.__actors
@@ -172,7 +171,6 @@ class Movie:
             raise ValueError
         else:
             self.__runtime_minutes = r
-
 
     def remove_actor(self, actor: Actor):
         if actor in self.__actors:
@@ -200,7 +198,6 @@ class Movie:
         else:
             pass
 
-
     def __repr__(self):
         return f"<Movie {self.__title}, {self.__release_year}>"
 
@@ -219,6 +216,7 @@ class Movie:
         return hash(self.uniqueID)
         pass
 
+
 class ValueError(Exception):
     pass
 
@@ -226,7 +224,7 @@ class ValueError(Exception):
 class Review:
 
     def __init__(self, movie: Movie, review_text: str, rating: int):
-        rating_list = [1,2,3,4,5,6,7,8,9,10]
+        rating_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         if type(movie) is not Movie:
             self.__movie = None
         else:
@@ -248,7 +246,6 @@ class Review:
 
         self.__timestamp: datetime = datetime.datetime.now().timestamp()
         self.uniqueID: str = f"{self.__movie}_{self.__review_text}_{self.__rating}_{self.__timestamp}"
-
 
     @property
     def timestamp(self):
@@ -301,6 +298,7 @@ class Review:
     def __eq__(self, other):
         return not self.uniqueID < other.uniqueID and not other.uniqueID < self.uniqueID
         pass
+
 
 class User:
 
@@ -418,7 +416,7 @@ class WatchList:
             pass
 
     def select_movie_to_watch(self, index: int):
-        if index < 0 or index > len(self.__watchlist)-1:
+        if index < 0 or index > len(self.__watchlist) - 1:
             return None
         else:
             return self.__watchlist[index]
@@ -437,13 +435,11 @@ class WatchList:
         return iter(self.__watchlist)
 
     def __next__(self):
-        ''''Returns the next value from watchlist object's lists '''
         if self._index < len(self.__watchlist):
             return self.__watchlist[self.index]
             self._index += 1
         # End of Iteration
         raise StopIteration
-
 
 
 class MovieFileCSVReader:
@@ -462,12 +458,9 @@ class MovieFileCSVReader:
         self.genres: List[Genre] = list()
         self.year: List[int] = list()
 
-
     def read_csv_file(self):
         with open(self.__file_name, mode='r', encoding='utf-8-sig') as csvfile:
             movie_file_reader = csv.DictReader(csvfile)
-
-
 
             for row in movie_file_reader:
                 self.movies.append(row['Title'])
@@ -486,8 +479,6 @@ class MovieFileCSVReader:
                 else:
                     pass
                 index += 1
-
-
 
             for actor in self.actors:
                 list_actors = actor.split(',')
@@ -519,6 +510,4 @@ class MovieFileCSVReader:
                     else:
                         pass
 
-            #print(f"{len(self.movies)}, {len(self.dataset_of_actors)}, {len(self.dataset_of_genres)}, {len(self.dataset_of_directors)}")
-
-
+            # print(f"{len(self.movies)}, {len(self.dataset_of_actors)}, {len(self.dataset_of_genres)}, {len(self.dataset_of_directors)}")
