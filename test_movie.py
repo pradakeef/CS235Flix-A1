@@ -47,10 +47,13 @@ def test_movie():
 
 
 def test_csv_file():
+    #check_file_reads_in
     filename = 'Data1000Movies.csv'
     movie_file_reader = MovieFileCSVReader(filename)
     movie_file_reader.read_csv_file()
 
+
+    #check_length_of_movie_lists_are_accurate
     print(f'number of unique movies: {len(movie_file_reader.dataset_of_movies)}')
     print(f'number of unique actors: {len(movie_file_reader.dataset_of_actors)}')
     print(f'number of unique directors: {len(movie_file_reader.dataset_of_directors)}')

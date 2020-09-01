@@ -519,6 +519,6 @@ class MovieFileCSVReader:
                     else:
                         pass
 
-            print(f"{len(self.movies)}, {len(self.dataset_of_actors)}, {len(self.dataset_of_genres)}, {len(self.dataset_of_directors)}")
+            #print(f"{len(self.movies)}, {len(self.dataset_of_actors)}, {len(self.dataset_of_genres)}, {len(self.dataset_of_directors)}")
 
 
