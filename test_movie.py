@@ -42,7 +42,7 @@ def test_movie():
     print(movie.actors)
 
     #check_for_out_of_range_runtime
-    movie.runtime_minutes = -10
+    movie.runtime_minutes = -20
     print("Movie runtime: {} minutes".format(movie.runtime_minutes))
 
 
