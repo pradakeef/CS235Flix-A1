@@ -8,12 +8,19 @@ from movie import User
 from movie import WatchList
 
 
-def test_title():
-    movie = Movie("Moana", 2009)
-    print(movie)
+def test_dicector_genre_actor():
+    director = Director("Christopher Nolan")
+    actor = Actor("Chris Pratt")
+    genre = Genre("Horror")
+    print(director)
+    print(actor)
+    print(genre)
 
 
-def test_description():
+
+def test_movie():
+
+    #check_boolean_equality_function
     movie = Movie("Moana", 2009)
     print(movie)
 
@@ -27,25 +34,19 @@ def test_description():
     print(movie < movie3)
     print(movie3 == movie3)
 
-    director = Director("Ron Clements")
-    movie.director = director
-    print(movie.director)
-
-    director = Director("Christopher Nolan")
-    movie2.director = director
-    print(movie2.director)
-
+    #check_remove_actor_in_list_of_actors
     actors = [Actor("Auli'i Cravalho"), Actor("Dwayne Johnson"), Actor("Rachel House"), Actor("Temuera Morrison")]
     for actor in actors:
         movie.add_actor(actor)
     movie.remove_actor(Actor("Auli'i Cravalho"))
     print(movie.actors)
 
-    movie.runtime_minutes = 109
+    #check_for_out_of_range_runtime
+    movie.runtime_minutes = -10
     print("Movie runtime: {} minutes".format(movie.runtime_minutes))
 
 
-def test_read_csv_file():
+def test_csv_file():
     filename = 'Data1000Movies.csv'
     movie_file_reader = MovieFileCSVReader(filename)
     movie_file_reader.read_csv_file()
@@ -65,24 +66,34 @@ def test_read_csv_file():
     print(f'first 3 unique directors of sorted dataset: {all_movies_sorted[0:3]}')
 
 
-def test_movie():
+def test_review():
+    #check_not_review_type_and_rating_returns_none
     movie = Movie("Moana", 2016)
     review_text = Movie("Me", 2324)
     rating = 100
     review = Review(movie, review_text, rating)
     review2 = Review(movie, review_text, rating)
 
-    print(review.movie)
+    print("Review: {}".format(review.review_text))
+    print("Rating: {}".format(review.rating))
+
+    #check_same_review_equality
+    movie = Movie("Moana", 2016)
+    review_text = "It was a very fun movie for the kids"
+    rating = 10
+    review = Review(movie, review_text, rating)
+    review2 = Review(movie, review_text, rating)
+
     print("Review: {}".format(review.review_text))
     print("Rating: {}".format(review.rating))
 
     print(review2 == review)
-    print(review2 == review)
+    print(review == review2)
     print(review2.timestamp)
     print(review.timestamp)
 
 
-def test_user_name():
+def test_user():
     user1 = User('Martin', 'pw12345')
     user4 = User('Martin', 'pw12345')
     user2 = User('Ian', 'pw67890')
@@ -114,7 +125,7 @@ def test_user_name():
     print(user1.watched_movies)
 
 
-def test_select_movie_to_watch():
+def test_watchlist():
     # init watchlist
     watchlist = WatchList()
     print(f"Size of watchlist: {watchlist.size()}")
