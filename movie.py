@@ -4,11 +4,11 @@
 # 365403795
 # Aniketh Mantravadi
 
-import csv
 from actor import Actor
 from director import Director
 from genre import Genre
 from typing import List
+
 
 class Movie:
 
@@ -36,6 +36,10 @@ class Movie:
         self.__actors: List[Movie.Actor] = list()
         self.__genres: List[Movie.Genre] = list()
         self.__runtime_minutes: int
+        self.__external_rating: float
+        self.__votes: int
+        self.__revenue: float
+        self.__metascore: int
 
     @property
     def title(self) -> str:
@@ -76,6 +80,60 @@ class Movie:
             raise ValueError
         else:
             self.__runtime_minutes = r
+
+    @property
+    def external_rating(self) -> float:
+        return self.__external_rating
+
+    @external_rating.setter
+    def external_rating(self, e: float):
+        error = (e < 0)
+        if error or type(e) is not float:
+            raise ValueError
+        else:
+            self.__external_rating = e
+
+    @property
+    def votes(self) -> int:
+        return self.__votes
+
+    @votes.setter
+    def votes(self, v: int):
+        error = (v < 0)
+        if type(v) is not int:
+            raise ValueError
+        elif error:
+            raise ValueError
+        else:
+            self.__votes = v
+
+    @property
+    def revenue(self) -> float:
+        return self.__revenue
+
+    @revenue.setter
+    def revenue(self, rev: float):
+        error = (rev < 0)
+        if type(rev) is not float:
+            raise ValueError
+        elif error:
+            raise ValueError
+        else:
+            self.__revenue = rev
+
+    @property
+    def metascore(self) -> int:
+        return self.__metascore
+
+    @metascore.setter
+    def metascore(self, m: int):
+        error = (m < 0)
+        if type(m) is not int:
+            raise ValueError
+        elif error:
+            raise ValueError
+        else:
+            self.__metascore = m
 
     def remove_actor(self, actor: Actor):
         if actor in self.__actors:
