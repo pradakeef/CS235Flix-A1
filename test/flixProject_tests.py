@@ -42,8 +42,11 @@ def test_movie():
     print(movie.actors)
 
     # check_for_out_of_range_runtime
-    movie.runtime_minutes = -20
+    movie.runtime_minutes = 20
     print("Movie runtime: {} minutes".format(movie.runtime_minutes))
+
+    movie.external_rating = -30
+    print("votes: {}".format(movie.external_rating))
 
 
 def test_csv_file():
