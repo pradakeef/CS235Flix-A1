@@ -45,7 +45,7 @@ def test_movie():
     movie.runtime_minutes = 20
     print("Movie runtime: {} minutes".format(movie.runtime_minutes))
 
-    movie.external_rating = -30
+    movie.external_rating = 30
     print("votes: {}".format(movie.external_rating))
 
 
