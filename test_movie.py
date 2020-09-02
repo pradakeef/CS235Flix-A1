@@ -9,6 +9,8 @@ from movie import WatchList
 
 
 def test_director_genre_actor():
+
+    # check_init
     director = Director("Christopher Nolan")
     actor = Actor("Chris Pratt")
     genre = Genre("Horror")
