@@ -7,6 +7,7 @@ from movie_file_csv_reader import MovieFileCSVReader
 from review import Review
 from user import User
 from watchlist import WatchList
+from watchingsimulation import MovingWatchingSimulation
 
 
 def test_director_genre_actor():
@@ -196,3 +197,6 @@ def test_watchlist():
     watchlist.remove_movie(Movie("Guardians of the Galaxy", 2012))
     for movie in watchlist:
         print(movie)
+
+def test_simulation():
+    MovieWatchingSimulation()
