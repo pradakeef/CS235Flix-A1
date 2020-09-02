@@ -197,6 +197,3 @@ def test_watchlist():
     watchlist.remove_movie(Movie("Guardians of the Galaxy", 2012))
     for movie in watchlist:
         print(movie)
-
-def test_simulation():
-    MovieWatchingSimulation()
