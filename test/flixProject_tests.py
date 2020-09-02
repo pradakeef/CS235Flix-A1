@@ -1,15 +1,15 @@
 import pytest
 from director import Director
 from genre import Genre
-from movie import Actor
-from movie import Movie, MovieFileCSVReader
-from movie import Review
-from movie import User
-from movie import WatchList
+from actor import Actor
+from movie import Movie
+from movie_file_csv_reader import MovieFileCSVReader
+from review import Review
+from user import User
+from watchlist import WatchList
 
 
 def test_director_genre_actor():
-
     # check_init
     director = Director("Christopher Nolan")
     actor = Actor("Chris Pratt")
@@ -48,7 +48,7 @@ def test_movie():
 
 def test_csv_file():
     # check_file_reads_in
-    filename = 'Data1000Movies.csv'
+    filename = '../Data1000Movies.csv'
     movie_file_reader = MovieFileCSVReader(filename)
     movie_file_reader.read_csv_file()
 
@@ -58,6 +58,7 @@ def test_csv_file():
     print(f'number of unique directors: {len(movie_file_reader.dataset_of_directors)}')
     print(f'number of unique genres: {len(movie_file_reader.dataset_of_genres)}')
 
+    # check_equality_sorting_movie_dataset_objects
     all_directors_sorted = sorted(movie_file_reader.dataset_of_directors)
     print(f'first 3 unique directors of sorted dataset: {all_directors_sorted[0:3]}')
 
