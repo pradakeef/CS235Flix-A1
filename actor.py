@@ -1,4 +1,3 @@
-
 class Actor:
 
     def __init__(self, actor_full_name: str):
@@ -22,8 +21,6 @@ class Actor:
         else:
             return False
 
-
-
     def __repr__(self):
         return f"<Actor {self.__actor_full_name}>"
 
@@ -38,7 +35,3 @@ class Actor:
     def __hash__(self):
         return hash(self.__actor_full_name)
         pass
-
-
-
-
