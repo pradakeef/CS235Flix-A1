@@ -1,6 +1,6 @@
-from movie import User
+from user import User
 from movie import Movie
-from movie import Review
+from review import Review
 
 class MovingWatchingSimulation:
     user1 = User('BigCinema', 'pw12345')
