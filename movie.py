@@ -87,7 +87,7 @@ class Movie:
 
     @external_rating.setter
     def external_rating(self, e: float):
-        error = (e < 0)
+        error = (10 < e < 0)
         if error or type(e) is not float:
             raise ValueError
         else:
@@ -127,7 +127,7 @@ class Movie:
 
     @metascore.setter
     def metascore(self, m: int):
-        error = (m < 0)
+        error = (100 < m < 0)
         if type(m) is not int:
             raise ValueError
         elif error:
