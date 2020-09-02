@@ -7,7 +7,6 @@ from movie_file_csv_reader import MovieFileCSVReader
 from review import Review
 from user import User
 from watchlist import WatchList
-from watchingsimulation import MovingWatchingSimulation
 
 
 def test_director_genre_actor():
