@@ -42,7 +42,7 @@ def test_movie():
     print(movie.actors)
 
     # check_for_out_of_range_runtime
-    movie.runtime_minutes = 20
+    movie.runtime_minutes = 121
     print("Movie runtime: {} minutes".format(movie.runtime_minutes))
 
     movie.external_rating = 30
@@ -70,6 +70,13 @@ def test_csv_file():
 
     all_movies_sorted = sorted(movie_file_reader.dataset_of_movies)
     print(f'first 3 unique directors of sorted dataset: {all_movies_sorted[0:3]}')
+
+    # check_movie_attributes_are_accessible
+    for movie in all_movies_sorted[0:3]:
+        print(f"Movie: {movie}")
+        print(f"Movie Description: {movie.description}")
+        print(f"Movie Actors: {movie.actors}")
+        print(f"Movie Rating: {movie.external_rating}")
 
 
 def test_review():
